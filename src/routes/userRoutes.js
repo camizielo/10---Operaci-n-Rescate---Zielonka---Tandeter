@@ -4,7 +4,7 @@ const { getProfile, updateMe } = require("../controllers/userController");
 
 const router = express.Router();
 
-router.get("/me", getProfile, authMiddleware);
+router.get("/me", authMiddleware, getProfile);
 router.put("/me", authMiddleware, updateMe);
 
 router.get("/orders", (req, res) => {
